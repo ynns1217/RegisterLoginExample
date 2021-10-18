@@ -2,6 +2,7 @@ package com.example.registerloginexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +19,10 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText et_id,et_pass,et_name,et_age;
-    private Button btn_register;
+    private EditText et_id, et_pass, et_name, et_phone;
+    private Button btn_register, btn_id, btn_num;
+    private AlertDialog dialog;
+    private boolean validate = false;
 
 
     @Override
@@ -31,7 +34,59 @@ public class RegisterActivity extends AppCompatActivity {
         et_id = findViewById(R.id.et_id);
         et_pass = findViewById(R.id.et_pass);
         et_name = findViewById(R.id.et_name);
-        et_age = findViewById(R.id.et_age);
+        et_phone = findViewById(R.id.et_phone);
+
+        //아이디 중복확인 버튼 클릭 시 수행
+        btn_id = findViewById(R.id.btn_id);
+        btn_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userID = et_id.getText().toString();
+                if (validate) {
+                    return;
+                }
+                if (userID.equals("")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    dialog = builder.setMessage("아이디는 빈 칸일 수 없습니다") //정상 작동
+                            .setPositiveButton("확인", null)
+                            .create();
+                    dialog.show();
+                    return;
+                }
+
+                Response.Listener<String> responseListener=new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse=new JSONObject(response);
+                            boolean success=jsonResponse.getBoolean("success");
+                            AlertDialog.Builder builder=new AlertDialog.Builder( RegisterActivity.this );
+                            if(success){
+                                dialog=builder.setMessage("사용할 수 있는 아이디입니다.")
+                                        .setPositiveButton("확인",null)
+                                        .create();
+                                dialog.show();
+                                et_id.setEnabled(false);
+                                validate=true;
+                                btn_id.setText("확인");
+                            }
+                            else{
+                                dialog=builder.setMessage("사용할 수 없는 아이디입니다.")
+                                        .setNegativeButton("확인",null)
+                                        .create();
+                                dialog.show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                ValidateRequest ValidateRequest = new ValidateRequest(userID,responseListener);
+               RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+               queue.add(ValidateRequest);
+            }
+        });
+
 
         //회원가입 버튼 클릭 시 수행
         btn_register = findViewById(R.id.btn_register);
@@ -42,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userID = et_id.getText().toString();
                 String userPass = et_pass.getText().toString();
                 String userName = et_name.getText().toString();
-                int userAge = Integer.parseInt(et_age.getText().toString());
+                int userPhone = Integer.parseInt(et_phone.getText().toString()); //숫자형식말고 전화번호받아오는 형식으로 수정하기
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -54,9 +109,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "회원 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
-                            }else {//회원등록에 실패한 경우
+                            }
+                            else {  //회원등록에 실패한 경우
                                 Toast.makeText(getApplicationContext(), "회원 등록에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                                return;
+                                return; //실패한 경우 어플 강제 종료 현상
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -64,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 };
                 //서버로 Volley 를 이용해서 요청을 함
-                RegisterRequest registerRequest = new RegisterRequest(userID,userPass,userName,userAge,responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(userID,userPass,userName,userPhone,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
             }
