@@ -8,23 +8,23 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tv_id,tv_pass;
+    private TextView et_id,et_pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_id = findViewById(R.id.tv_id);
-        tv_pass = findViewById(R.id.tv_pass);
+        et_id = findViewById(R.id.et_id);
+        et_pass = findViewById(R.id.et_pass);
 
 
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
         String userPass = intent.getStringExtra("userPass");
 
-        tv_id.setText(userID);
-        tv_pass.setText(userPass);
+        et_id.setText(userID);
+        et_pass.setText(userPass);
 
 
     }
