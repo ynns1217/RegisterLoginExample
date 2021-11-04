@@ -12,6 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.RegisterLoginExample">
         <activity android:name=".LoginActivity">
             <!-- 맨처음 로그인 화면을 띄우기 위해 필요하다 -->
