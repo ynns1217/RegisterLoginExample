@@ -14,6 +14,14 @@ import androidx.fragment.app.Fragment;
  */
 public class DomainFragment extends Fragment {
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_domain, container, false);
+    }
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,7 +43,7 @@ public class DomainFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment DomainFragment.
      */
-    // TODO: Rename and change types and number of parameters 할 일: 이름 다시 짓기 그리고 바꾸기 타입 그리고 파라미터의 이름
+    // TODO: Rename and change types and number of parameters
     public static DomainFragment newInstance(String param1, String param2) {
         DomainFragment fragment = new DomainFragment();
         Bundle args = new Bundle();
@@ -54,10 +62,20 @@ public class DomainFragment extends Fragment {
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_domain, container, false);
+
+    public String getmParam1() {
+        return mParam1;
+    }
+
+    public void setmParam1(String mParam1) {
+        this.mParam1 = mParam1;
+    }
+
+    public String getmParam2() {
+        return mParam2;
+    }
+
+    public void setmParam2(String mParam2) {
+        this.mParam2 = mParam2;
     }
 }

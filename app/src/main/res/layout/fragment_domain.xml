@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="#1E4695"
         android:orientation="horizontal">
 
 
@@ -94,7 +93,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:background="#FF8A65" />
+            android:background="#FFFFFF" />
 
 
         <Button
@@ -119,13 +118,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:background="#505050" />
+        android:background="#ffffff" />
 
     <ListView
         android:id="@+id/courseListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#4DB6AC"
         android:divider="#ffffff"
         android:dividerHeight="10dp" />
 
