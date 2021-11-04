@@ -1,12 +1,11 @@
 package com.example.registerloginexample;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +35,7 @@ public class DomainFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment DomainFragment.
      */
-    // TODO: Rename and change types and number of parameters
+    // TODO: Rename and change types and number of parameters 할 일: 이름 다시 짓기 그리고 바꾸기 타입 그리고 파라미터의 이름
     public static DomainFragment newInstance(String param1, String param2) {
         DomainFragment fragment = new DomainFragment();
         Bundle args = new Bundle();

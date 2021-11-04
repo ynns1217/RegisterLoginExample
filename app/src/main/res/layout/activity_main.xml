@@ -16,7 +16,7 @@
 
 
         <Button
-            android:id="@+id/courseButton"
+            android:id="@+id/DomainSearchBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
@@ -66,8 +66,8 @@
                     android:layout_width="125dp"
                     android:layout_height="125dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="200dp"
-                    android:scr="@drawble/logo" /> //공지 할게 있나,, 몰라 나중에 딴걸로 바꾸던가
+                    android:layout_marginTop="200dp"/>
+                    //android:src="@drawble/logo" /> //공지 할게 있나,, 몰라 나중에 딴걸로 바꾸던가
 
                 <TextView
                     android:layout_width="wrap_content"
