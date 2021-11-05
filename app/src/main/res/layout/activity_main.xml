@@ -23,73 +23,99 @@
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:background="@color/design_default_color_on_primary"
-            android:text="도메인 검색"
+            android:text="사이트 검색"
             android:textColor="#FFFFFF"
             android:textSize="18dp"
             android:textStyle="bold"
             app:backgroundTint="#E3779C" />//도메인 검색 버튼
 
-        <Button
-            android:id="@+id/scheduleButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/design_default_color_on_primary"
-            android:layout_weight="1"
-            android:text="내 도메인 목록"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:backgroundTint="#E3779C" /> // 내 도메인 목록 버튼
+
 
     </LinearLayout>
-    <FrameLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/pink"
+        android:orientation="vertical"
+        tools:context=".DomainFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+        <RadioGroup
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/courseUniversityGroup"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="사이트"
+                android:id="@+id/university"/>
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="어플"
+                android:id="@+id/graduate"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:paddingRight="10dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingRight="10dp">
+
+            <Spinner
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/majorSpinner"
+                ></Spinner>
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@color/white"
+                android:text="강의 검색"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/searchButton" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/notice">
-
-
-            <LinearLayout
+            android:layout_margin="10dp"
+            android:background="#FFFFFF">
+            <ListView
                 android:layout_width="match_parent"
-                android:layout_height="1000dp"
-                android:layout_marginTop="8dp"
-                android:background="#E3779C"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="200dp"/>
-                    //android:src="@drawble/logo" /> //공지 할게 있나,, 몰라 나중에 딴걸로 바꾸던가
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:text="공지사항"
-                    android:textColor="#ffffff"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:id="@+id/fragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"> // 공지사항 띄우는거라는데 여기다 도메인 띄울걸 그랬나?
-
-                </RelativeLayout>
-            </LinearLayout>
-
+                android:layout_height="match_parent"
+                android:id="@+id/courseListView"
+                android:dividerHeight="10dp"
+                android:divider="#FFFFFF"
+                android:padding="5dp"></ListView>
         </LinearLayout>
 
-    </FrameLayout>
-</LinearLayout>
-
-
+    </LinearLayout>

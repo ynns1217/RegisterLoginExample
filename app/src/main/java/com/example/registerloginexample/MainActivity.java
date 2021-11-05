@@ -41,33 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         final Button courseButton=(Button) findViewById(R.id.DomainSearchBtn);
-        final Button scheduleButton=(Button) findViewById(R.id.scheduleButton);
-        final LinearLayout notice=(LinearLayout)findViewById(R.id.notice);
 
         courseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 courseButton.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
-                scheduleButton.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary_dark));
 
                 FragmentManager fragmentManager=getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment, new DialogFragment());
-                fragmentTransaction.commit();
-            }
-        });
-
-
-        scheduleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                notice.setVisibility(View.GONE);//공지사항부분이 보이지 않도록, fragment로 바꿔줄수 있게
-                courseButton.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary));
-                scheduleButton.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary_dark));
-
-                FragmentManager fragmentManager=getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment, new ScheduleFragment());
                 fragmentTransaction.commit();
             }
         });
