@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute(){
             //super.onPreExecute();
-            target="https://ynns1217.ivyro.net/CourseList.php";
+            target="https://ynns1217.ivyro.net/DomainList.php";
         }
 
         @Override
