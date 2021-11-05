@@ -18,11 +18,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Map;
+import java.util.PriorityQueue;
 
 public class LoginActivity extends AppCompatActivity {
     final static private String URL = "http://ynns1217.ivyro.net/Login.php";
-    private Map<String,String> map;
-    private EditText et_id,et_pass;
+    private Map<String, String> map;
+    private EditText et_id, et_pass;
     private AlertDialog dialog;
 
     @Override
@@ -46,32 +47,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
-            private Response.Listener<String> responseListener;
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 //EditText에 현재 입력되어있는 값을 get, 가져온다 해온다
                 String userID = et_id.getText().toString();
                 String userPass = et_pass.getText().toString();
-
-
-                if (userID.equals("")){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    dialog = builder.setMessage("아이디를 입력하시오.") //정상 작동
-                            .setPositiveButton("확인", null)
-                            .create();
-                    dialog.show();
-                    return;
-                }
-                else if (userPass.equals("")) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    dialog = builder.setMessage("비밀번호를 입력하시오.")
-                            .setPositiveButton("확인", null)
-                            .create();
-                    dialog.show();
-                    return;
-                }
-
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -86,12 +67,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(), "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("userPass", userPass);
+                                Intent.putExtra("userID", String.valueOf(Boolean.parseBoolean(userID)));
+                                Intent.putExtra("userPAss", Boolean.parseBoolean(userPass));
                                 startActivity(intent);
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (JSONException e) {
@@ -103,8 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
+
         });
-
-
     }
 }

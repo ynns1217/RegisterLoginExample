@@ -101,7 +101,7 @@ public class  RegisterActivity extends AppCompatActivity {
                 String userPass = et_pass.getText().toString();
                 String userPass2 = et_pass2.getText().toString();
                 String userName = et_name.getText().toString();
-                String userPhone = et_phone.getText().toString();
+                int userPhone = Integer.parseInt(et_phone.getText().toString());
 
                 if (userName.equals("")||userPass.equals("")||userPass2.equals("")||userID.equals("")||userPhone.equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
