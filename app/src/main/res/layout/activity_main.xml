@@ -89,6 +89,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/majorSpinner"
+                app:backgroundTint="#ffffff"
                 ></Spinner>
 
             <Button
