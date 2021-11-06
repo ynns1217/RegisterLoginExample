@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SiteplusActivity">
+
+    //원래 아이디 있던칸
+
+    //원래 전화번호 있던칸
+
+    <EditText
+        android:id="@+id/plus_site"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="사이트"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Siteplus" />
+
+    <EditText
+        android:id="@+id/plus_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/plus_site"
+        app:layout_constraintTop_toBottomOf="@+id/plus_site" />
+
+    <EditText
+        android:id="@+id/plus_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/plus_id"
+        app:layout_constraintTop_toBottomOf="@+id/plus_id" />
+
+    <EditText
+        android:id="@+id/plus_pass2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="비밀번호 확인"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/plus_pass"
+        app:layout_constraintTop_toBottomOf="@+id/plus_pass" />
+
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="추가"
+        app:backgroundTint="#E3779C"
+        app:layout_constraintStart_toStartOf="@+id/plus_pass2"
+        app:layout_constraintTop_toBottomOf="@+id/plus_pass2" />
+
+    <Button
+        android:id="@+id/btn_cancle"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="취소"
+        app:backgroundTint="#E3779C"
+        app:layout_constraintEnd_toEndOf="@+id/plus_pass2"
+        app:layout_constraintTop_toBottomOf="@+id/plus_pass2" />
+    //뒤로가기
+
+
+    <Button
+        android:id="@+id/btn_site"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="39dp"
+        android:text="중복확인"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:backgroundTint="#E3779C"
+        app:layout_constraintEnd_toEndOf="@+id/plus_id"
+        app:layout_constraintStart_toEndOf="@+id/plus_site"
+        app:layout_constraintTop_toBottomOf="@+id/Siteplus" />
+
+    <TextView
+        android:id="@+id/Siteplus"
+        android:layout_width="133dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="124dp"
+        android:text="사이트 추가"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
