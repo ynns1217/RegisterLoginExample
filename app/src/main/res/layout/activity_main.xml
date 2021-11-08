@@ -16,7 +16,7 @@
 
 
         <Button
-            android:id="@+id/DomainSearchBtn"
+            android:id="@+id/Btn_AddSite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -27,10 +27,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18dp"
             android:textStyle="bold"
-            app:backgroundTint="#E3779C" />//도메인 검색 버튼
-
-
-
+            app:backgroundTint="#E3779C" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,7 +88,7 @@
                 app:queryHint="검색어를 입력하시오" />
 
             <Button
-                android:id="@+id/searchButton"
+                android:id="@+id/Btn_Search"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -111,7 +108,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/courseListView"
+                android:id="@+id/DomainListView"
                 android:dividerHeight="10dp"
                 android:divider="#FFFFFF"
                 android:padding="5dp"></ListView>

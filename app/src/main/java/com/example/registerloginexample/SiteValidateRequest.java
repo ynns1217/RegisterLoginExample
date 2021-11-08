@@ -8,16 +8,16 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ValidateRequest extends StringRequest {
+public class SiteValidateRequest extends StringRequest {
     //서버 url 설정(php파일 연동)
-    final static private String URL = "http://ynns1217.ivyro.net/UserValidate.php";
+    final static private String URL = "http://ynns1217.ivyro.net/SiteValidate.php";
     private Map<String,String> map;
 
-    public ValidateRequest(String userID, Response.Listener<String>listener){
+    public SiteValidateRequest(String plusID, Response.Listener<String>listener){
         super(Request.Method.POST,URL,listener,null);
 
         map=new HashMap<>();
-        map.put("userID",userID);
+        map.put("plusID",plusID);
 
 
     }

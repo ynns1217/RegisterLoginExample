@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SiteplusActivity">
+    tools:context=".SiteAddActivity">
 
     //원래 아이디 있던칸
 
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.402"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Siteplus" />
+        app:layout_constraintTop_toBottomOf="@+id/AddSite" />
 
     <EditText
         android:id="@+id/plus_id"
@@ -45,6 +45,10 @@
         app:layout_constraintStart_toStartOf="@+id/plus_id"
         app:layout_constraintTop_toBottomOf="@+id/plus_id" />
 
+
+    //뒤로가기
+
+
     <EditText
         android:id="@+id/plus_pass2"
         android:layout_width="wrap_content"
@@ -53,9 +57,9 @@
         android:ems="10"
         android:hint="비밀번호 확인"
         android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/plus_pass"
         app:layout_constraintStart_toStartOf="@+id/plus_pass"
         app:layout_constraintTop_toBottomOf="@+id/plus_pass" />
-
 
     <Button
         android:id="@+id/btn_plus"
@@ -68,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/plus_pass2" />
 
     <Button
-        android:id="@+id/btn_cancle"
+        android:id="@+id/btn_back"
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -76,8 +80,6 @@
         app:backgroundTint="#E3779C"
         app:layout_constraintEnd_toEndOf="@+id/plus_pass2"
         app:layout_constraintTop_toBottomOf="@+id/plus_pass2" />
-    //뒤로가기
-
 
     <Button
         android:id="@+id/btn_site"
@@ -90,10 +92,10 @@
         app:backgroundTint="#E3779C"
         app:layout_constraintEnd_toEndOf="@+id/plus_id"
         app:layout_constraintStart_toEndOf="@+id/plus_site"
-        app:layout_constraintTop_toBottomOf="@+id/Siteplus" />
+        app:layout_constraintTop_toBottomOf="@+id/AddSite" />
 
     <TextView
-        android:id="@+id/Siteplus"
+        android:id="@+id/AddSite"
         android:layout_width="133dp"
         android:layout_height="39dp"
         android:layout_marginTop="124dp"

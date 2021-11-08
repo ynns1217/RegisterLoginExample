@@ -7,13 +7,13 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SiteplusRequest extends StringRequest {
+public class SiteAddRequest extends StringRequest {
     //서버 URL 설정( PHP 파일 연동)
     final static private String URL = "http://ynns1217.ivyro.net/Siteplus.php";
     private Map<String, String> map;
 
 
-    public SiteplusRequest(String plusID, String plusPassword, String plusSite, Response.Listener<String>listener) {
+    public SiteAddRequest(String plusID, String plusPassword, String plusSite, Response.Listener<String>listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
