@@ -138,9 +138,9 @@ public class  SiteAddActivity extends AppCompatActivity {
                 };
 
                 //서버로 Volley 를 이용해서 요청을 함
-                SiteAddRequest siteAddRequest = new SiteAddRequest(plusID, plusPass,plusSite,responseListener);
+                SiteAddRequest siteaddRequest = new SiteAddRequest(plusID, plusPass, plusSite,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SiteAddActivity.this);
-                queue.add(siteAddRequest);
+                queue.add(siteaddRequest);
             }
         });
     }}

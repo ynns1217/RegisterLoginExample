@@ -13,11 +13,11 @@ public class SiteValidateRequest extends StringRequest {
     final static private String URL = "http://ynns1217.ivyro.net/SiteValidate.php";
     private Map<String,String> map;
 
-    public SiteValidateRequest(String plusID, Response.Listener<String>listener){
+    public SiteValidateRequest(String plusSite, Response.Listener<String>listener){
         super(Request.Method.POST,URL,listener,null);
 
         map=new HashMap<>();
-        map.put("plusID",plusID);
+        map.put("plusSite",plusSite);
 
 
     }

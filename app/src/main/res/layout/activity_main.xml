@@ -23,7 +23,7 @@
             android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:background="@color/design_default_color_on_primary"
-            android:text="사이트 추가"
+            android:text="사이트 추dddd가"
             android:textColor="#FFFFFF"
             android:textSize="18dp"
             android:textStyle="bold"
