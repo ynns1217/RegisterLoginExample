@@ -16,7 +16,7 @@ public class SiteAddRequest extends StringRequest {
     public SiteAddRequest(String plusID, String plusPassword, String plusSite, Response.Listener<String>listener) {
         super(Method.POST, URL, listener, null);
 
-        map = new HashMap<>();
+        map = new HashMap();
         map.put("plusID", plusID);
         map.put("plusPassword", plusPassword);
         map.put("plusSite", plusSite);

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="fragment" type="id" />
+    <item name="textView_list_plusSite" type="id" />
+    <item name="textView_list_plusID" type="id" />
+    <item name="textView_list_plusPassword" type="id" />
 </resources>
