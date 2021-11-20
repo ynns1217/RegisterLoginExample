@@ -100,19 +100,33 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="#FFFFFF">
-            <ListView
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/DomainListView"
-                android:dividerHeight="10dp"
-                android:divider="#FFFFFF"
-                android:padding="5dp"></ListView>
-        </LinearLayout>
+                android:layout_margin="10dp"
+                android:background="#FFFFFF">
+
+                <ListView
+                    android:id="@+id/PlusSitedListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="#FFFFFF"
+                    android:dividerHeight="10dp"
+                    android:padding="5dp"></ListView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </RelativeLayout>
+        </FrameLayout>
 
     </LinearLayout>
 </LinearLayout>
