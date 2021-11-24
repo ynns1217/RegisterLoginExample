@@ -23,7 +23,7 @@
             android:layout_marginTop="2dp"
             android:layout_weight="1"
             android:background="@color/design_default_color_on_primary"
-            android:text="사이트 추dddd가"
+            android:text="내 사이트 추가"
             android:textColor="#FFFFFF"
             android:textSize="18dp"
             android:textStyle="bold"
@@ -48,6 +48,7 @@
             android:layout_marginTop="10dp">
 
             <RadioButton
+                android:buttonTint="@color/white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -55,6 +56,7 @@
                 android:id="@+id/university"/>
 
             <RadioButton
+                android:buttonTint="@color/white"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -66,21 +68,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:paddingRight="10dp">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
             android:gravity="center"
             android:paddingRight="10dp">
 
             <androidx.appcompat.widget.SearchView
+                android:background="@color/white"
                 android:id="@+id/search_view"
                 android:layout_width="272dp"
                 android:layout_height="31dp"
@@ -99,13 +92,14 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
         </LinearLayout>
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
             <LinearLayout
+                android:id="@+id/site"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -117,8 +111,8 @@
                     android:layout_height="match_parent"
                     android:divider="#FFFFFF"
                     android:dividerHeight="10dp"
-                    android:padding="5dp"></ListView>
-            </LinearLayout>
+                    android:padding="5dp" />
+              </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/fragment"
@@ -127,6 +121,5 @@
 
             </RelativeLayout>
         </FrameLayout>
-
     </LinearLayout>
 </LinearLayout>

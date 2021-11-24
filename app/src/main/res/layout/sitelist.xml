@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,12 +13,13 @@
         android:layout_gravity="center"
         android:padding="10dp"
         android:textColor="#ffffff"
-        android:id="@+id/plusSiteText"
-        android:drawableStart="@drawable/ic_textsms_black_24dp"
-        android:drawableLeft="@drawable/ic_textsms_black_24dp"
+        android:id="@+id/siteText"
         android:background="@color/pink"
         android:textStyle="bold"
+        android:drawableStart="@drawable/ic_textsms_black_24dp"
+        android:drawableLeft="@drawable/ic_textsms_black_24dp"
         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,23 +27,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="plusID"
+            android:text="sss"
             android:layout_gravity="center"
             android:padding="3dp"
             android:layout_marginLeft="8dp"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
-            android:id="@+id/plusIDText"
+            android:id="@+id/idText"
+            android:layout_marginStart="8dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="plusPassword"
+            android:text="123"
             android:layout_gravity="center"
             android:padding="3dp"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
-            android:id="@+id/plusPasswordText"
+            android:id="@+id/pwText"
             />
     </LinearLayout>
 </LinearLayout>
