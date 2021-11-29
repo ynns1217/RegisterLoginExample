@@ -89,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("userID", userID);
                                 intent.putExtra("userPass", userPass);
                                 startActivity(intent);
+
                             }
                             else {
                                 Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
@@ -97,14 +98,17 @@ public class LoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
                 };
                 LoginRequest loginRequest = new LoginRequest(userID, userPass, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
+
         });
 
 
     }
+
 }

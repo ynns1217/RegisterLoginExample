@@ -20,7 +20,6 @@ public class SiteAddRequest extends StringRequest {
         map.put("plusID", plusID);
         map.put("plusPassword", plusPassword);
         map.put("plusSite", plusSite);
-
     }
 
     @Override

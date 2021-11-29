@@ -2,4 +2,5 @@
 <resources>
     <item name="fragment" type="id" />
     <item name="PlusSitedListView" type="id" />
+    <item name="TextView_get" type="id" />
 </resources>

@@ -3,6 +3,7 @@ package com.example.registerloginexample;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,11 +20,13 @@ import org.json.JSONObject;
 
 public class  RegisterActivity extends AppCompatActivity {
 
-    private EditText et_id, et_pass, et_pass2, et_name, et_phone,et_num;
+    private EditText et_id, et_pass, et_pass2, et_name, et_phone, et_num;
     private Button btn_id;
-    private Button btn_num;
+    private Button btn_sms;
     private AlertDialog dialog;
     private boolean validate = false;
+
+    static final int SMS_SEND_PERMISSON = 1;
 
 
     @Override
@@ -31,13 +34,17 @@ public class  RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .permitDiskReads()
+                .permitDiskWrites()
+                .permitNetwork().build());
+
+
         //아이디 값 찾아주기
         et_id = findViewById(R.id.et_id);
         et_pass = findViewById(R.id.et_pass);
         et_pass2 = findViewById(R.id.et_pass2);
         et_name = findViewById(R.id.et_name);
-        et_phone = findViewById(R.id.et_phone);
-        et_num = findViewById(R.id.et_num);
 
         //아이디 중복확인 버튼 클릭 시 수행
         btn_id = findViewById(R.id.btn_id);
@@ -57,25 +64,23 @@ public class  RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                Response.Listener<String> responseListener=new Response.Listener<String>() {
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonResponse=new JSONObject(response);
-                            boolean success=jsonResponse.getBoolean("success");
-                            AlertDialog.Builder builder=new AlertDialog.Builder( RegisterActivity.this );
-                            if(success){
-                                dialog=builder.setMessage("사용할 수 있는 아이디입니다.")
-                                        .setPositiveButton("확인",null)
-                                        .create();
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                            if (success) {
+                                dialog = builder.setMessage("사용할 수 있는 아이디입니다.")
+                                        .setPositiveButton("확인", null).create();
                                 dialog.show();
                                 et_id.setEnabled(false);
-                                validate=true;
+                                validate = true;
                                 btn_id.setText("확인");
-                            }
-                            else{
-                                dialog=builder.setMessage("사용할 수 없는 아이디입니다.")
-                                        .setNegativeButton("확인",null)
+                            } else {
+                                dialog = builder.setMessage("사용할 수 없는 아이디입니다.")
+                                        .setNegativeButton("확인", null)
                                         .create();
                                 dialog.show();
                             }
@@ -84,7 +89,7 @@ public class  RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                ValidateRequest ValidateRequest = new ValidateRequest(userID,responseListener);
+                ValidateRequest ValidateRequest = new ValidateRequest(userID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(ValidateRequest);
             }
@@ -101,17 +106,15 @@ public class  RegisterActivity extends AppCompatActivity {
                 String userPass = et_pass.getText().toString();
                 String userPass2 = et_pass2.getText().toString();
                 String userName = et_name.getText().toString();
-                String userPhone = et_phone.getText().toString();
 
-                if (userName.equals("")||userPass.equals("")||userPass2.equals("")||userID.equals("")||userPhone.equals("")){
+                if (userName.equals("") || userPass.equals("") || userPass2.equals("") || userID.equals("") ) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     dialog = builder.setMessage("빈 칸이 존재합니다.") //정상 작동
                             .setPositiveButton("확인", null)
                             .create();
                     dialog.show();
                     return;
-                }
-                else if (!userPass.equals(userPass2)) {
+                } else if (!userPass.equals(userPass2)) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     dialog = builder.setMessage("비밀번호가 일치하지 않습니다.")
                             .setPositiveButton("확인", null)
@@ -130,8 +133,7 @@ public class  RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "회원 등록에 성공하였습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
-                            }
-                            else{//회원등록 실패한 경우 이거 모르겟음.ㅎ
+                            } else {//회원등록 실패한 경우 이거 모르겟음.ㅎ
                                 return;
                             }
                         } catch (JSONException e) {
@@ -141,10 +143,13 @@ public class  RegisterActivity extends AppCompatActivity {
                 };
 
                 //서버로 Volley 를 이용해서 요청을 함
-                RegisterRequest registerRequest = new RegisterRequest(userID,userPass,userName,userPhone,responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(userID, userPass, userName, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
             }
+
         });
+
     }
 }
+

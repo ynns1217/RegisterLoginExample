@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,29 +24,50 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private List<PlusSiteResult> sitedList = new ArrayList<PlusSiteResult>();
+    TextView TextView_get;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+       TextView_get=findViewById(R.id.UserList);
+       Intent intent = getIntent();
+       Bundle bundle = intent.getExtras();
+       final String userID= bundle.getString("userID");
+       TextView_get.setText(userID + "의 사이트 목록");
+
         ListView plusSitedListView = (ListView) findViewById(R.id.PlusSitedListView);
         sitedList = new ArrayList<PlusSiteResult>();
 
+
+
         PlusSiteListAdapter adapter = new PlusSiteListAdapter(getApplicationContext(), sitedList);
         plusSitedListView.setAdapter(adapter);
-        final LinearLayout site = (LinearLayout)findViewById(R.id.site);
+        final LinearLayout site = (LinearLayout) findViewById(R.id.site);
+
+
 
         Button Btn_AddSite = findViewById(R.id.Btn_AddSite);
         Btn_AddSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SiteAddActivity.class);
+                intent.putExtra("userID", userID);
                 startActivity(intent);
             }
-
         });
         new BackgroundTask().execute();
+
+
+       LinearLayout siteED = findViewById(R.id.siteED);
+        siteED.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SiteAddActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -71,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 StringBuilder stringBuilder = new StringBuilder();
                 //버퍼생성후 한줄씩 가져옴
                 while ((temp = bufferedReader.readLine()) != null) {
-                    stringBuilder.append(temp+"");
+                    stringBuilder.append(temp + "");
                 }
                 bufferedReader.close();
                 inputStream.close();
@@ -113,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
     }
 
     //뒤로가기 두번 누르면 종료

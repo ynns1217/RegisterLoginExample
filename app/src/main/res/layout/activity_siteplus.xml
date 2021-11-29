@@ -76,8 +76,8 @@
         android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="취소"
         app:backgroundTint="#E3779C"
+        android:text="취소"
         app:layout_constraintEnd_toEndOf="@+id/plus_pass2"
         app:layout_constraintTop_toBottomOf="@+id/plus_pass2" />
 
