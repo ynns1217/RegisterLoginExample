@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SiteAddActivity">
 
-    //원래 아이디 있던칸
-
-    //원래 전화번호 있던칸
-
     <EditText
         android:id="@+id/plus_site"
         android:layout_width="150dp"
@@ -21,7 +17,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.402"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddSite" />
+        app:layout_constraintTop_toBottomOf="@+id/AddSite"
+        android:autofillHints="" />
+
+
+    //뒤로가기
+
+
+    <EditText
+        android:id="@+id/plus_site2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="사이트 주소"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/plus_site"
+        app:layout_constraintTop_toBottomOf="@+id/plus_site" />
 
     <EditText
         android:id="@+id/plus_id"
@@ -31,8 +44,10 @@
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/plus_site"
-        app:layout_constraintTop_toBottomOf="@+id/plus_site" />
+        app:layout_constraintEnd_toEndOf="@+id/plus_site2"
+        app:layout_constraintStart_toStartOf="@+id/plus_site2"
+        app:layout_constraintTop_toBottomOf="@+id/plus_site2"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/plus_pass"
@@ -42,12 +57,10 @@
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/plus_id"
         app:layout_constraintStart_toStartOf="@+id/plus_id"
-        app:layout_constraintTop_toBottomOf="@+id/plus_id" />
-
-
-    //뒤로가기
-
+        app:layout_constraintTop_toBottomOf="@+id/plus_id"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/plus_pass2"
@@ -58,8 +71,10 @@
         android:hint="비밀번호 확인"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/plus_pass"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/plus_pass"
-        app:layout_constraintTop_toBottomOf="@+id/plus_pass" />
+        app:layout_constraintTop_toBottomOf="@+id/plus_pass"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btn_plus"
@@ -90,7 +105,7 @@
         android:textSize="8sp"
         android:textStyle="bold"
         app:backgroundTint="#E3779C"
-        app:layout_constraintEnd_toEndOf="@+id/plus_id"
+        app:layout_constraintEnd_toEndOf="@+id/plus_site2"
         app:layout_constraintStart_toEndOf="@+id/plus_site"
         app:layout_constraintTop_toBottomOf="@+id/AddSite" />
 

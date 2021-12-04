@@ -13,13 +13,14 @@ public class SiteAddRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public SiteAddRequest(String plusID, String plusPassword, String plusSite, Response.Listener<String>listener) {
+    public SiteAddRequest(String plusID, String plusPass, String plusSite, String plusUrl, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("plusID", plusID);
-        map.put("plusPassword", plusPassword);
+        map.put("plusPassword", plusPass);
         map.put("plusSite", plusSite);
+        map.put("plusUrl", plusUrl);
     }
 
     @Override

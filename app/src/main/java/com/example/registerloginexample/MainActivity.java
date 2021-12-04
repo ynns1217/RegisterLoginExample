@@ -60,14 +60,6 @@ public class MainActivity extends AppCompatActivity {
         new BackgroundTask().execute();
 
 
-       LinearLayout siteED = findViewById(R.id.siteED);
-        siteED.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SiteAddActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 

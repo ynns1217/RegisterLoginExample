@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 public class  SiteAddActivity extends AppCompatActivity {
 
-    private EditText plus_site, plus_id, plus_pass, plus_pass2;
+    private EditText plus_site, plus_id, plus_pass, plus_pass2, plus_url;
     private Button btn_site;
     private Button btn_back;
     private AlertDialog dialog;
@@ -37,14 +37,8 @@ public class  SiteAddActivity extends AppCompatActivity {
         plus_pass = findViewById(R.id.plus_pass);
         plus_pass2 = findViewById(R.id.plus_pass2);
         plus_site = findViewById(R.id.plus_site);
+        plus_url = findViewById(R.id.plus_site2);
 
-        Button btn_back = findViewById(R.id.btn_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity2();
-            }
-        });
 
 
         //사이트 중복확인 버튼 클릭 시 수행
@@ -107,8 +101,9 @@ public class  SiteAddActivity extends AppCompatActivity {
                 String plusPass = plus_pass.getText().toString();
                 String plusPass2 = plus_pass2.getText().toString();
                 String plusSite = plus_site.getText().toString();
+                String plusUrl = plus_url.getText().toString();
 
-                if (plusID.equals("") || plusPass.equals("") || plusPass2.equals("") || plusSite.equals("")) {
+                if (plusID.equals("") || plusPass.equals("") || plusPass2.equals("") || plusSite.equals("") || plusUrl.equals("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SiteAddActivity.this);
                     dialog = builder.setMessage("빈 칸이 존재합니다.") //정상 작동
                             .setPositiveButton("확인", null)
@@ -143,7 +138,7 @@ public class  SiteAddActivity extends AppCompatActivity {
                     }
                 };
                 //서버로 Volley 를 이용해서 요청을 함
-                SiteAddRequest siteaddRequest = new SiteAddRequest(plusID, plusPass, plusSite, responseListener);
+                SiteAddRequest siteaddRequest = new SiteAddRequest(plusID, plusPass, plusSite, plusUrl, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SiteAddActivity.this);
                 queue.add(siteaddRequest);
             }
@@ -152,8 +147,4 @@ public class  SiteAddActivity extends AppCompatActivity {
     }
 
 
-    public void openActivity2() {
-        Intent intent = new Intent(SiteAddActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
 }
